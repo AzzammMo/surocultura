@@ -5,7 +5,7 @@
 <section class="py-16 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-100">
 
     <div class="max-w-6xl mx-auto px-6">
-
+        
         {{-- ===================== JUDUL DAN DESKRIPSI ===================== --}}
         <h1 class="text-4xl font-bold text-amber-900 mb-4 text-center">
             <i class="fa-solid fa-language mr-2"></i>
@@ -18,7 +18,6 @@
             <span class="text-rose-700 font-semibold">Bahasa Suroboyoan</span>.  
         </p>
 
-        
         {{-- BUTTON KAMUS --}}
         <div class="text-center mb-10">
             <button onclick="toggleKamus()" 
@@ -27,13 +26,13 @@
             </button>
         </div>
 
-
         <a href="/" 
            class="px-3 py-2 bg-gray-700 text-white text-sm font-medium rounded-md shadow hover:bg-gray-900 
                   transition flex items-center gap-1 w-fit mb-6">
             <i class="fa-solid fa-arrow-left text-xs"></i> Kembali
         </a>
- {{-- GRID --}}
+
+        {{-- GRID --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
             {{-- ================= Bahasa Suroboyoan ================= --}}
@@ -115,6 +114,7 @@
             </div>
 
         </div>
+
         {{-- ===================== KAMUS BAHASA JAWA SUROBOYOAN ===================== --}}
         <div id="kamusSection" class="hidden mt-16">
 
@@ -123,17 +123,19 @@
                 Kamus Bahasa Jawa – Suroboyoan
             </h2>
 
-            {{-- FILTER KATEGORI STYLE BUTTON --}}
-            <div class="mb-6 flex flex-wrap gap-3">
-                @php
-                $categories = ['all'=>'Semua','dasar'=>'Dasar','aktivitas'=>'Aktivitas','emosi'=>'Emosi',
-                               'surabayaan'=>'Surabaya Khas','tempat'=>'Tempat','waktu'=>'Waktu','tambahan'=>'Tambahan'];
-                @endphp
-                @foreach($categories as $key => $label)
-                    <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 text-gray-700 
-                                   hover:bg-emerald-600 hover:text-white transition"
-                            data-category="{{ $key }}">{{ $label }}</button>
-                @endforeach
+            {{-- FILTER KATEGORI --}}
+            <div class="mb-4 flex items-center gap-4">
+                <label for="filterCategory" class="font-semibold text-gray-700 dark:text-gray-200">Filter Kategori:</label>
+                <select id="filterCategory" class="border rounded-lg p-2 bg-white dark:bg-gray-800 dark:text-gray-200">
+                    <option value="all">Semua</option>
+                    <option value="dasar">Dasar</option>
+                    <option value="aktivitas">Aktivitas</option>
+                    <option value="emosi">Emosi</option>
+                    <option value="surabayaan">Surabaya Khas</option>
+                    <option value="tempat">Tempat</option>
+                    <option value="waktu">Waktu</option>
+                    <option value="tambahan">Tambahan</option>
+                </select>
             </div>
 
             <div class="overflow-x-auto bg-white dark:bg-gray-800 shadow-xl rounded-xl transition-colors duration-300">
@@ -151,82 +153,36 @@
                     <tbody class="text-gray-700 dark:text-gray-200">
                         @php
                         $kamus = [
-                          // === DASAR TAMBAHAN TANPA "REK" ===
-                            ['ayo','monggo','ayo','ayo / mari','Ayo, kita dolan bareng.','dasar'],
-                            ['mari','mari','mari','mari / silakan','Mari, silakan mlebu.','dasar'],
-                            ['halo','halo','halo','halo / salam','Halo, piye kabarmu?','dasar'],
-                            ['piye','kados pundi','piye','bagaimana','Piye, sehat-sehat?','dasar'],
-                            ['kulo','kula','aku','saya / aku','Kulo arep lunga sek.','dasar'],
-                            ['sampeyan','panjenengan','sampeyan','anda / kamu','Sampeyan piye kabarmu?','dasar'],
-                            ['nuwun','matur nuwun','nuwun','terima kasih','Nuwun, wis mbantu aku.','dasar'],
-                            ['nyuwun','nyuwun','nyuwun','tolong / minta','Nyuwun sekedhap.','dasar'],
-                            ['tulung','tulung','tulung','tolong','Tulung bukak lawange.','dasar'],
-                            ['sampun','sampun','wis','sudah','Sampun mangan durung?','dasar'],
-                            ['durung','dereng','durung','belum','Durung teka sek.','dasar'],
-                            ['enak','enak','enak','enak / lezat','Es krim iki enak.','dasar'],
-                            ['luwe','luwe','luwe','lapar','Aku luwe pol.','dasar'],
-                            ['wareg','wareg','wareg','kenyang','Aku wis wareg.','dasar'],
-                            ['seneng','seneng','seneng','senang','Aku seneng ketemu kowe.','dasar'],
-                            ['biasa','biasa','biasa','biasa / biasa saja','Aku biasa wae.','dasar'],
-                            ['mangan','dhahar','mangan','makan','Aku mangan dhisik.','dasar'],
-                            ['turu','tilem','turu','tidur','Aku turu dhisik.','dasar'],
-                            ['lungo','tindak','lungo','pergi','Aku lunga sek.','dasar'],
-                            ['ngombe','unjuk','ngombe','minum','Ngombe es sek.','dasar'],
+                            // === DASAR ===
+                            ['arep','badhe','arep rek','mau / ingin','Aku arep lungo rek.','dasar'],
+                            ['mangan','dhahar','mangan rek','makan','Aku mangan dhisik rek.','dasar'],
+                            ['turu','tilem','turu rek','tidur','Aku turu dhisik rek.','dasar'],
+                            ['ngombe','unjuk','ngombe','minum','Ngombe es sek rek.','dasar'],
+                            ['lungo','tindak','mlayu / lungo','pergi','Aku lungo sek yo rek.','dasar'],
+                            ['kowe','panjenengan','awakmu rek','kamu','Kowe piye kabarmu rek?','dasar'],
 
-
-                                                    // === AKTIVITAS TAMBAHAN TANPA "REK" ===
-                            ['mlaku','kesah','mlaku','jalan','Aku mlaku menyang pasar.','aktivitas'],
-                            ['gawe','damel','gawe','mengerjakan','Aku gawe tugas sekolah.','aktivitas'],
-                            ['ngenteni','ngentosi','ngenteni','menunggu','Aku ngenteni kancaku ing omah.','aktivitas'],
-                            ['tuku','tumbas','tuku','membeli','Aku tuku sayur nang pasar.','aktivitas'],
-                            ['ndelok','mireng / ningali','ndelok','melihat','Aku ndelok film anyar.','aktivitas'],
+                            // === AKTIVITAS ===
+                            ['mlaku','kesah','mlaku','jalan','Ayo mlaku-mlaku nang Tunjungan.','aktivitas'],
+                            ['gawe','damel','gawe','mengerjakan','Aku gawe tugas sek rek.','aktivitas'],
+                            ['ngenteni','ngentosi','sek','menunggu','Ngenteni aku nang kene rek.','aktivitas'],
+                            ['tuku','tumbas','tuku rek','membeli','Aku tuku oleh-oleh rek.','aktivitas'],
+                            ['ndelok','mireng / ningali','ndelok','melihat','Aku ndelok film anyar rek.','aktivitas'],
                             ['mbayar','mbayar','mbayar','membayar','Aku mbayar parkir sek.','aktivitas'],
-                            ['mangan','dhahar','mangan','makan','Aku mangan dhisik.','aktivitas'],
-                            ['turu','tilem','turu','tidur','Aku turu sethithik.','aktivitas'],
-                            ['ngombe','unjuk','ngombe','minum','Aku ngombe banyu.','aktivitas'],
-                            ['nyapu','resik-resik','nyapu','menyapu','Aku nyapu teras omah.','aktivitas'],
-                            ['ngepel','ngumbahi lantai','ngepel','mengepel','Aku ngepel lantai.','aktivitas'],
-                            ['ngumbah','mbasuh','ngumbah','mencuci','Aku ngumbah klambi.','aktivitas'],
-                            ['ngendhog','ngendhog','ngendhog','menulis / mencatat','Aku ngendhog catetan sekolah.','aktivitas'],
-                            ['macak','macak','macak','menghias / merapikan','Aku macak meja.','aktivitas'],
-                            ['mancing','mancing','mancing','memancing','Aku arep menyang kali kanggo mancing.','aktivitas'],
-                            ['dolanan','dolanan','dolanan','bermain','Bocah-bocah padha dolanan bal-balan.','aktivitas'],
-                            ['nyetir','nyetir','nyopir','menyetir','Aku nyetir motor menyang kantor.','aktivitas'],
-                            ['masak','masak','masak','memasak','Aku masak panganan sore iki.','aktivitas'],
-                            ['nyapu','resik-resik','nyapu','menyapu','Aku nyapu halaman.','aktivitas'],
-                            ['nyuci','nyuci','nyuci','mencuci','Aku nyuci piring sawise mangan.','aktivitas'],
-                            ['mlumpat','mlumpat','mlumpat','melompat','Aku mlumpat nang kebon.','aktivitas'],
 
+                            // === EMOSI ===
+                            ['seneng','remen','seneng rek','senang','Aku seneng banget rek.','emosi'],
+                            ['getun','sareh','nyesel','menyesal','Aku getun ora sinau.','emosi'],
+                            ['gela','sedhih','gela rek','sedih','Gela aku rek.','emosi'],
+                            ['kaget','kaget','jancuk!','terkejut','Jancuk, kaget aku!','emosi'],
+                            ['gondok','nesu','gondok rek','marah','Aku gondok tenan rek!','emosi'],
 
-                                                        // === EMOSI SOPAN ===
-                            ['seneng','remen','seneng','senang','Aku seneng banget karo kowe.','emosi'],
-                            ['getun','sareh','nyesel','menyesal','Aku getun ora sinau dina iki.','emosi'],
-                            ['gela','sedhih','gela','sedih','Aku gela amarga ketinggalan sepur.','emosi'],
-                            ['kaget','kaget','kaget','terkejut','Aku kaget nalika ndeleng kahanan iki.','emosi'],
-                            ['gondok','nesu','gondok','marah','Aku gondok amarga ana sing telat teka.','emosi'],
-                            ['seneng ati','seneng','seneng ati','bahagia','Ati iki seneng banget saiki.','emosi'],
-                            ['cemas','cemas','cemas','khawatir','Aku cemas amarga ujian besok.','emosi'],
-                            ['kuciwa','kuciwa','kuciwa','kecewa','Aku kuciwa karo asil pertandingan.','emosi'],
-                            ['sumringah','sumringah','sumringah','tersenyum lebar','Wajahku sumringah amarga kabar apik.','emosi'],
-                            ['nyesel','nyesel','nyesel','menyesal','Aku nyesel ora njupuk kesempatan iki.','emosi'],
-
-
-                                                    // === SURABAYAAN KHAS SOPAN ===
+                            // === SURABAYAAN KHAS ===
                             ['cak','-','cak/cuk','sapaan lelaki','Halo cak, piye kabarmu?','surabayaan'],
-                            ['coeg','-','coeg','cemohan santai','Coeg, kowe lucu tenan.','surabayaan'],
+                            ['rek','-','rek','sapaan teman','Ayo rek, dolan.','surabayaan'],
+                            ['','-','coeg','cemohan santai','Coeg, kowe lucu tenan.','surabayaan'],
                             ['keles','-','keles','ungkapan mengejek','Sok banget keles.','surabayaan'],
-                            ['ndang','-','ndang','cepat','Ndang teka saiki.','surabayaan'],
-                            ['gak iso','-','gak iso','tidak bisa','Aku gak iso nindakake iku.','surabayaan'],
-                            ['ojo','-','ojo','jangan','Ojo lali nggawa tasmu.','surabayaan'],
-                            ['wes','-','wes','sudah','Wes rampung tugasku.','surabayaan'],
-                            ['yo','-','yo','iya / setuju','Yo, ayo langsung miwiti.','surabayaan'],
-                            ['meh','-','meh','hampir / hampir sama','Meh rampung proyek iki.','surabayaan'],
-                            ['ndak','-','ndak','tidak','Aku ndak ngerti maksude.','surabayaan'],
-                            ['arep','-','arep','ingin / mau','Aku arep mangan saiki.','surabayaan'],
-                            ['podo','-','podo','sama / mirip','Warna baju iki podo karo singmu.','surabayaan'],
-                            ['ngene','-','ngene','begini / seperti ini','Ngene carane nindakake.','surabayaan'],
-                            ['ngeyel','-','ngeyel','keras kepala','Anak iku ngeyel tenan.','surabayaan'],
-                            ['cetho','-','cetho','jelas / terang','Penjelasanmu cetho banget.','surabayaan'],
+                            ['ndang','-','ndang','cepat','Ndang teko rek!','surabayaan'],
+                            ['gak iso','-','gak iso','tidak bisa','Aku gak iso rek.','surabayaan'],
 
                             // === TEMPAT ===
                             ['omah','griya','omah','rumah','Aku neng omah rek.','tempat'],
@@ -235,12 +191,10 @@
                             ['warung','warung','warung','toko kecil','Ayo ngopi nang warung.','tempat'],
 
                             // === WAKTU ===
-                           ['esuk','enjing','esuk','pagi','Esuk iki seger tenan.','waktu'],
-                            ['awen','sonten','sore','sore','Ayo mulih sore iki.','waktu'],
-                            ['bengi','dalu','bengi','malam','Bengi iki adhem.','waktu'],
-                            ['mengko','menggah','mengko','nanti','Mengko aku teka.','waktu'],
-                            ['sedina','sedinten','sedina','sehari','Sedina iki akeh gawean.','waktu'],
-                            ['sasi','wulan','sasi','bulan','Wulan iki akeh acara.','waktu'],
+                            ['esuk','enjing','esuk rek','pagi','Esuk enak ngopi rek.','waktu'],
+                            ['awen','sonten','sore rek','sore','Ayo mulih sore rek.','waktu'],
+                            ['bengi','dalu','bengi rek','malam','Bengi enak turu rek.','waktu'],
+                            ['mengko','menggah','mengko rek','nanti','Mengko aku teko rek.','waktu'],
 
                             // === TAMBAHAN ===
                             ['kenyang','wareg','wareg rek','kenyang','Aku wis wareg rek.','tambahan'],
@@ -274,9 +228,10 @@
                             ['sumuk','panas','sumuk rek','gerah','Ruangan iki sumuk pol rek.','tambahan'],
                             ['larang','awis','larang','mahal','Sandangan iki larang.','tambahan'],
                             ['kepeng','ajrih alit','kepingin','ingin sekali','Aku kepeng dolan.','tambahan'],
-                            ['ngumbah','mbasuh','nyuci rek','mencuci','Aku ngumbah klambi.','tambahan'],  
+                            ['ngumbah','mbasuh','nyuci rek','mencuci','Aku ngumbah klambi.','tambahan'],
                         ];
                         @endphp
+
                         @foreach($kamus as $k)
                         <tr class="border hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" data-category="{{ $k[5] }}">
                             <td class="p-3 border dark:border-gray-700">{{ $k[0] }}</td>
@@ -291,30 +246,16 @@
                 </table>
             </div>
 
-            {{-- PAGINASI SEDERHANA --}}
-            <div id="pagination" class="mt-6 flex justify-center gap-3">
-                <button id="prevPage" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400" disabled>Prev</button>
-                <span id="pageInfo" class="px-4 py-2 font-semibold text-gray-700">Page 1</span>
-                <button id="nextPage" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Next</button>
-            </div>
-
         </div>
 
     </div>
 
 </section>
 
+<!-- HILANGKAN SCROLLBAR DI MOBILE -->
 <style>
-/* Hilangkan scroll di mobile */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-/* Filter button aktif */
-.filter-btn.active {
-    background-color: #059669; /* emerald-600 */
-    color: white;
-    border-color: #059669;
-}
 </style>
 
 <script>
@@ -322,64 +263,22 @@ function toggleKamus() {
     document.getElementById("kamusSection").classList.toggle("hidden");
 }
 
-// ===== FILTER KATEGORI DENGAN BUTTON =====
-const filterBtns = document.querySelectorAll('.filter-btn');
-let currentPage = 1;
-const rowsPerPage = 5; // jumlah baris per halaman
-const allRows = Array.from(document.querySelectorAll('#kamusTable tbody tr'));
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.search.includes("page=")) {
+        const sec = document.getElementById("kamusSection");
+        sec.classList.remove("hidden");
+        window.scrollTo({ top: sec.offsetTop - 50, behavior: "smooth" });
+    }
+});
 
-function updatePagination() {
-    const category = document.querySelector('.filter-btn.active')?.dataset.category || 'all';
-    const filteredRows = allRows.filter(row => category==='all' || row.dataset.category===category);
-    const totalPages = Math.ceil(filteredRows.length / rowsPerPage);
+document.getElementById('filterCategory').addEventListener('change', function() {
+    const category = this.value;
+    const rows = document.querySelectorAll('#kamusTable tbody tr');
 
-    // tampilkan baris sesuai halaman
-    filteredRows.forEach((row,i)=>{
-        row.style.display = (i >= (currentPage-1)*rowsPerPage && i < currentPage*rowsPerPage) ? '' : 'none';
-    });
-
-    // sembunyikan baris yang tidak termasuk filter
-    allRows.forEach(row=>{
-        if(!filteredRows.includes(row)) row.style.display = 'none';
-    });
-
-    // update info halaman
-    document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${totalPages || 1}`;
-    document.getElementById('prevPage').disabled = currentPage===1;
-    document.getElementById('nextPage').disabled = currentPage===totalPages || totalPages===0;
-
-    // tampilkan pagination hanya jika jumlah baris > 10
-    document.getElementById('pagination').style.display = (filteredRows.length > 10) ? 'flex' : 'none';
-}
-
-// event klik filter
-filterBtns.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-        filterBtns.forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        currentPage = 1;
-        updatePagination();
+    rows.forEach(row => {
+        row.style.display = (category === 'all' || row.dataset.category === category) ? '' : 'none';
     });
 });
-
-// event prev / next
-document.getElementById('prevPage').addEventListener('click', ()=>{
-    if(currentPage>1){ currentPage--; updatePagination(); }
-});
-document.getElementById('nextPage').addEventListener('click', ()=>{
-    const category = document.querySelector('.filter-btn.active')?.dataset.category || 'all';
-    const filteredRows = allRows.filter(row => category==='all' || row.dataset.category===category);
-    const totalPages = Math.ceil(filteredRows.length / rowsPerPage);
-    if(currentPage<totalPages){ currentPage++; updatePagination(); }
-});
-
-// inisialisasi
-document.addEventListener('DOMContentLoaded', ()=>{
-    // aktifkan filter "all" default
-    document.querySelector('.filter-btn[data-category="all"]').classList.add('active');
-    updatePagination();
-});
-
 </script>
 
 @endsection
