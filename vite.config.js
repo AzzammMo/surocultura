@@ -8,6 +8,11 @@ export default defineConfig({
     laravel({
       input: ['resources/css/app.css', 'resources/js/app.js'],
       refresh: true,
+      
     }),
   ],
+      build: {
+        outDir: 'public/build',  // folder output tetap public/build
+        emptyOutDir: true        // bersihkan folder sebelum build
+    },
 })
