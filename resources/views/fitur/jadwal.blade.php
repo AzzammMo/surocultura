@@ -252,7 +252,7 @@
                 <i class="fa-solid fa-circle-info text-green-600 text-lg mt-[2px]"></i>
                 <p class="text-left">
                     Pembelian tiket Anda telah berhasil dan terdaftar dalam sistem 
-                    <span class="font-semibold text-green-700">SuroCulturo</span>.  
+                    <span class="font-semibold text-green-700">SuroCultura</span>.  
                     Silakan simpan e-ticket ini dan tunjukkan saat registrasi di lokasi acara.
                 </p>
             </div>
