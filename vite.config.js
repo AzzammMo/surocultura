@@ -11,8 +11,4 @@ export default defineConfig({
       
     }),
   ],
-      build: {
-        outDir: 'public/build',  // folder output tetap public/build
-        emptyOutDir: true        // bersihkan folder sebelum build
-    },
 })

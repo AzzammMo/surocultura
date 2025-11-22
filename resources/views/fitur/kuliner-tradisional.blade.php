@@ -97,6 +97,26 @@
                 </div>
             </div>
 
+            {{-- SEMANGGI SURABAYA --}}
+<div class="bg-white shadow-lg rounded-2xl overflow-hidden transform hover:-translate-y-2 
+            hover:shadow-2xl transition duration-300">
+    <div class="h-64 w-full">
+        <img src="/budaya/semanggifood.png" class="w-full h-full object-cover">
+    </div>
+    <div class="p-7">
+        <h3 class="text-2xl font-bold text-amber-800 mb-3">Semanggi Surabaya</h3>
+        <p class="text-gray-600 leading-relaxed">
+            Semanggi adalah hidangan khas Surabaya yang berbahan daun semanggi segar, kecambah, dan disiram saus kacang manis pedas. 
+            Hidangan ini menonjolkan kesegaran sayuran dan rasa saus kacang yang khas.
+        </p>
+        <button onclick="openModal('modalSemanggi')"
+            class="mt-4 px-4 py-2 bg-amber-700 text-white rounded-lg hover:bg-amber-800 transition">
+            Detail
+        </button>
+    </div>
+</div>
+
+
         </div>
     </div>
 
@@ -220,6 +240,32 @@
                 class="mt-6 w-full bg-gray-700 hover:bg-gray-900 text-white py-2 rounded-lg">Tutup</button>
         </div>
     </div>
+
+    {{-- ====================== SEMANGGI SURABAYA ====================== --}}
+<div id="modalSemanggi" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+    <div class="bg-white w-11/12 md:w-2/3 lg:w-1/2 max-h-[80vh] overflow-y-auto p-6 rounded-xl shadow-xl 
+                animate-[fadeIn_0.2s_ease-out]">
+
+        <img src="/budaya/semanggifood.png" class="w-full h-56 object-cover rounded-lg mb-4">
+
+        <h2 class="text-2xl font-bold text-amber-800 mb-4">Semanggi Surabaya</h2>
+        <p class="text-gray-700 leading-relaxed">
+            <b>Deskripsi:</b><br>
+            Semanggi Surabaya adalah hidangan khas yang memanfaatkan daun semanggi segar dan kecambah, disiram dengan saus kacang manis-pedas khas Surabaya. 
+            Makanan ini dikenal sebagai camilan sehat, segar, dan ikonik di kawasan Tunjungan dan Surabaya Utara.<br><br>
+
+            <b>Bahan Utama:</b> Daun semanggi segar, kecambah, tauge, irisan tempe goreng, kerupuk.<br><br>
+
+            <b>Bumbu / Saus:</b> Kacang tanah sangrai dihaluskan, gula merah, cabai rawit, bawang putih, air asam jawa, garam.<br><br>
+
+            <b>Ciri Khas:</b> Kesegaran sayuran berpadu dengan saus kacang gurih-manis pedas, biasa disantap sebagai camilan atau lauk pelengkap.
+        </p>
+
+        <button onclick="closeModal('modalSemanggi')"
+            class="mt-6 w-full bg-gray-700 hover:bg-gray-900 text-white py-2 rounded-lg">Tutup</button>
+    </div>
+</div>
+
 
 </section>
 

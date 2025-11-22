@@ -9,11 +9,11 @@
     {{-- JUDUL RATATENGAH --}}
     <h1 class="text-4xl font-bold text-amber-900 mb-6 text-center">
         <i class="fa-solid fa-masks-theater mr-2"></i>
-        Literatur Budaya Nusantara
+        Literatur Budaya 
     </h1>
 
     <p class="text-gray-700 mb-10 leading-relaxed max-w-3xl mx-auto text-center">
-        Informasi budaya Surabaya & Jawa Timur mencakup baju adat, rumah adat, alat musik tradisional,
+        Informasi budaya Kota Surabaya mencakup baju adat, rumah adat, alat musik tradisional,
         serta lagu daerah yang dekat dengan identitas lokal.
     </p>
 
@@ -83,7 +83,7 @@
     const details = {
 
 bajuAdat: {
-    title: "Baju Adat Surabaya & Jawa Timur",
+    title: "Baju Adat Surabaya",
     items: [
         {
             name: "Pakaian Cak",
@@ -114,33 +114,33 @@ bajuAdat: {
             img: autoResolveImg("pakaianning.png")
         },
 
-        {
-            name: "Baju Mantenan",
-            desc: `
-                Baju Mantenan adalah busana pengantin adat Jawa Timur, sering ditemukan dalam pernikahan adat 
-                Surabaya dan daerah sekitarnya. Bahan dasarnya adalah beledu (velvet) hitam dengan ornamen emas.
+        // {
+        //     name: "Baju Mantenan",
+        //     desc: `
+        //         Baju Mantenan adalah busana pengantin adat Jawa Timur, sering ditemukan dalam pernikahan adat 
+        //         Surabaya dan daerah sekitarnya. Bahan dasarnya adalah beledu (velvet) hitam dengan ornamen emas.
 
-                <br><br><b>Bahan Utama:</b> Kain beludru hitam, benang emas, dan aksesoris prada.  
-                <br><b>Makna Filosofis:</b> Hitam melambangkan kewibawaan, sedangkan emas melambangkan kemuliaan dan keberkahan.  
-                <br><b>Dipakai Saat:</b> Upacara pernikahan adat Jawa Timur.  
-                <br><b>Ciri Khas:</b> Hiasan kepala Paes Ageng, ornamen keemasan, dan selempang batik bermotif klasik.
-            `,
-            img: autoResolveImg("bajumantenan.png")
-        },
+        //         <br><br><b>Bahan Utama:</b> Kain beludru hitam, benang emas, dan aksesoris prada.  
+        //         <br><b>Makna Filosofis:</b> Hitam melambangkan kewibawaan, sedangkan emas melambangkan kemuliaan dan keberkahan.  
+        //         <br><b>Dipakai Saat:</b> Upacara pernikahan adat Jawa Timur.  
+        //         <br><b>Ciri Khas:</b> Hiasan kepala Paes Ageng, ornamen keemasan, dan selempang batik bermotif klasik.
+        //     `,
+        //     img: autoResolveImg("bajumantenan.png")
+        // },
 
-        {
-            name: "Kebaya Rancongan",
-            desc: `
-                Kebaya Rancongan merupakan busana tradisional Madura yang banyak digunakan di wilayah Jawa Timur. 
-                Modelnya ketat dan mengikuti bentuk tubuh dengan warna-warna mencolok.
+        // {
+        //     name: "Kebaya Rancongan",
+        //     desc: `
+        //         Kebaya Rancongan merupakan busana tradisional Madura yang banyak digunakan di wilayah Jawa Timur. 
+        //         Modelnya ketat dan mengikuti bentuk tubuh dengan warna-warna mencolok.
 
-                <br><br><b>Bahan Utama:</b> Katun, brokat tipis, dan jarik khas Madura seperti motif tabir atau storjan.  
-                <br><b>Makna Filosofis:</b> Warna mencolok melambangkan keberanian masyarakat Madura.  
-                <br><b>Dipakai Saat:</b> Upacara adat, tarian Madura, serta kegiatan budaya.  
-                <br><b>Ciri Khas:</b> Warna merah, kuning, dan hijau terang, serta penggunaan kalung emas panjang (kalung tumpal).
-            `,
-            img: autoResolveImg("kebayarancongan.png")
-        }
+        //         <br><br><b>Bahan Utama:</b> Katun, brokat tipis, dan jarik khas Madura seperti motif tabir atau storjan.  
+        //         <br><b>Makna Filosofis:</b> Warna mencolok melambangkan keberanian masyarakat Madura.  
+        //         <br><b>Dipakai Saat:</b> Upacara adat, tarian Madura, serta kegiatan budaya.  
+        //         <br><b>Ciri Khas:</b> Warna merah, kuning, dan hijau terang, serta penggunaan kalung emas panjang (kalung tumpal).
+        //     `,
+        //     img: autoResolveImg("kebayarancongan.png")
+        // }
     ]
 },
 
@@ -332,9 +332,29 @@ laguDaerah: {
                 Melodi nostalgik namun penuh tenaga, dengan perpaduan tangga nada tradisional dan elemen orkestrasi modern untuk menonjolkan rasa kebanggaan dan semangat maritim.
             `,
             img: autoResolveImg("tanjungperak.png")
+        },
+        {
+            name: "Semanggi Suroboyo",
+            desc: `
+                "Semanggi Suroboyo" adalah lagu yang mengangkat identitas kuliner dan semangat masyarakat Surabaya melalui simbol semanggi – makanan khas kota yang populer di kalangan warga lokal. Lagu ini menonjolkan rasa kekeluargaan dan kebersamaan masyarakat dalam tradisi makan di warung maupun rumah.
+
+                <br><br><b>Latar Sejarah:</b>  
+                Lagu ini tercipta sebagai apresiasi terhadap budaya kuliner Surabaya, khususnya semanggi yang dikenal sebagai hidangan sederhana namun sarat nilai budaya. Lagu ini juga memperkenalkan tradisi kuliner lokal kepada generasi muda.
+
+                <br><b>Makna Budaya:</b>  
+                Liriknya mencerminkan keramahtamahan dan kebersamaan warga Surabaya. Semanggi bukan hanya makanan, tapi simbol interaksi sosial, persaudaraan, dan nilai budaya Kota Pahlawan.
+
+                <br><b>Penggunaan dalam Budaya:</b>  
+                Sering dibawakan dalam festival kuliner, acara sekolah, atau pentas seni lokal untuk memperkenalkan budaya kuliner Surabaya kepada masyarakat luas. Lagu ini juga digunakan sebagai media edukasi budaya bagi generasi muda.
+
+                <br><b>Ciri Musik:</b>  
+                Melodi riang dan mudah diikuti, ritme santai namun hangat, dengan unsur gamelan ringan atau alat musik perkusi untuk memberi nuansa tradisional dan khas Surabaya.
+            `,
+            img: autoResolveImg("semanggi.png")
         }
     ]
 }
+
 
     };
 
